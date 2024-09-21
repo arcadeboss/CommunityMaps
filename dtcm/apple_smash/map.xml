@@ -13,7 +13,7 @@ Features:
 - Auto-ignite TNT available as kill reward or purchase in the Player store
 -->
 <name>Apple Smash</name>
-<version>1.2.1</version>
+<version>1.2.2</version>
 <include id="gapple-kill-reward"/>
 <objective>Destroy the enemy's Apples!</objective>
 <gamemode>dtm</gamemode>
@@ -233,13 +233,13 @@ Features:
 <alert filter="only-red" after="2s">`r`f`lKon'nichiwa Samurai, defend the Red Apples and destroy the Green Apples.`r</alert>
 <alert filter="only-green" after="20s">`r`f`lCollect Redstone and Emerald blocks for store upgrades.`r</alert>
 <alert filter="only-red" after="20s">`r`f`lCollect Emerald and Redstone blocks for store upgrades.`r</alert>
-<tip after="60s" every="5m">`r`b`lDiamond Chestplates from the center will last for your current life and 3 additional lives.`r</tip>
-<tip after="90s" every="6m" filter="only-green">`r`b`lPermanent diamond helmet awarded for collecting a monument block while on a Red Apple.`r</tip>
-<tip after="90s" every="6m" filter="only-red">`r`b`lPermanent diamond helmet awarded for collecting a monument block while on a Green Apple.`r</tip>
+<tip after="60s" every="7m">`r`b`lDiamond Chestplates from the center will last for your current life and 3 additional lives.`r</tip>
+<tip after="90s" every="7m" filter="only-green">`r`b`lPermanent diamond helmet awarded for collecting a monument block while on a Red Apple.`r</tip>
+<tip after="90s" every="7m" filter="only-red">`r`b`lPermanent diamond helmet awarded for collecting a monument block while on a Green Apple.`r</tip>
 <tip after="180s" every="8m">`r`b`lYour Apple cannot be repaired, but dropped blocks can buy upgrades in the store.`r</tip>
 <tip after="250s" every="8m">`r`c`lTNT awarded for every 4 kills, or buy TNT in the store.`r</tip>
-<tip after="720s">`r`f`lDid you know? "Ringo" is Japanese for Apple.`r</tip>
-<tip after="900s">`r`f`lDid you know? Fuji and Mutsu Apples are named after places in Japan.`r</tip>
+<tip after="1000s">`r`f`lDid you know? "Ringo" is Japanese for Apple.`r</tip>
+<tip after="1900s">`r`f`lDid you know? Fuji and Mutsu Apples are named after places in Japan.`r</tip>
 </broadcasts>
 <shopkeepers name="`2`lPlayer Upgrades" shop="red-player-shop"> <!-- On Left -->
     <shopkeeper mob="Villager" yaw="90">-134.5,52,-7.5</shopkeeper> <!-- Red -->
@@ -284,6 +284,7 @@ Features:
         <sound key="item.armor.equip_diamond" pitch="1" volume="1"/>
         <sound key="item.armor.equip_diamond" pitch=".9" volume="1"/>
         <sound key="item.armor.equip_diamond" pitch=".95" volume="1"/>
+        <sound key="random.levelup" volume=".8" pitch="0.6"/>
         <message text="`2`l▲ `bYou got a permanent `lDiamond Helmet`r`b upgrade!`r"/>
         <set var="vanity_hat_variable" value="1"/>
     </action>
@@ -360,7 +361,7 @@ Features:
     <!-- BY RED -->
     <!-- Red picks up plain redstone -->
     <action id="pickup-red-action-by-red" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_red_momentary_variable" value="1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
             <find material="redstone block"/>
@@ -370,7 +371,7 @@ Features:
     <trigger filter="pickup-red-filter-by-red" action="pickup-red-action-by-red" scope="player"/>
     <!-- Red picks up stolen redstone -->
     <action id="pickup-red2-action-by-red" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_red_momentary_variable" value="1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
             <find material="redstone block" name="Red Stolen block"/>
@@ -380,7 +381,7 @@ Features:
     <trigger filter="pickup-red2-filter-by-red" action="pickup-red2-action-by-red" scope="player"/>
     <!-- Red picks up vanilla emerald -->
     <action id="pickup-green-action-by-red" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_green_momentary_variable" value="1"/>
         <set var="pickup_enemy_count" value="pickup_enemy_count+1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
@@ -391,7 +392,7 @@ Features:
     <trigger filter="pickup-green-filter-by-red" action="pickup-green-action-by-red" scope="player"/>
     <!-- Red picks up recovered emerald -->
     <action id="pickup-green2-action-by-red" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_green_momentary_variable" value="1"/>
         <set var="pickup_enemy_count" value="pickup_enemy_count+1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
@@ -403,7 +404,7 @@ Features:
     <!-- By GREEN -->
     <!-- Green picks up plain emerald -->
     <action id="pickup-green-action-by-green" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_green_momentary_variable" value="1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
             <find material="emerald block"/>
@@ -413,7 +414,7 @@ Features:
     <trigger filter="pickup-green-filter-by-green" action="pickup-green-action-by-green" scope="player"/>
     <!-- Green picks up stolen emerald -->
     <action id="pickup-green2-action-by-green" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_green_momentary_variable" value="1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
             <find material="emerald block" name="Green Stolen block"/>
@@ -423,7 +424,7 @@ Features:
     <trigger filter="pickup-green2-filter-by-green" action="pickup-green2-action-by-green" scope="player"/>
     <!-- Green picks up vanilla redstone -->
     <action id="pickup-red-action-by-green" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_red_momentary_variable" value="1"/>
         <set var="pickup_enemy_count" value="pickup_enemy_count+1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
@@ -434,7 +435,7 @@ Features:
     <trigger filter="pickup-red-filter-by-green" action="pickup-red-action-by-green" scope="player"/>
     <!-- Green picks up recovered redstone -->
     <action id="pickup-red2-action-by-green" scope="player">
-        <sound key="random.levelup" volume=".9" pitch="1.2"/>
+        <sound key="random.levelup" volume=".8" pitch="1.2"/>
         <set var="pickup_red_momentary_variable" value="1"/>
         <set var="pickup_enemy_count" value="pickup_enemy_count+1"/>
         <replace-item ignore-metadata="false" keep-amount="true">
@@ -509,7 +510,7 @@ Features:
         <message text="`e`l▲ `6Your team now has permanent `e`lShears`r"/>
         <set var="shears_variable" value="1"/>
         <kit force="true" filter="always">
-            <item material="shears" unbreakable="true"/>
+            <item material="shears" enchantment="efficiency:1" unbreakable="true"/>
         </kit>
         <set var="upgrade_me_variable" value="1"/>
     </action>
@@ -1136,7 +1137,7 @@ Features:
     </action>
     <action id="god-apple-action" scope="player">
         <kit force="true" filter="always" deduct-items="false">
-            <item material="golden_apple" damage="1" amount="3"/> <!-- yes, that one -->
+            <item material="golden_apple" damage="1" amount="1"/> <!-- yes, that one -->
         </kit>
     </action>
     <action id="knockback-apple-action" scope="player">
@@ -1387,13 +1388,13 @@ Features:
     <after id="redstone-pickup-warning" duration="5s">
         <all>
             <team>green-team</team>
-            <variable var="pickup_enemy_count">[14,oo)</variable>
+            <variable var="pickup_enemy_count">[15,oo)</variable>
         </all>
     </after>
     <after id="emerald-pickup-warning" duration="5s">
         <all>
             <team>red-team</team>
-            <variable var="pickup_enemy_count">[14,oo)</variable>
+            <variable var="pickup_enemy_count">[15,oo)</variable>
         </all>
     </after>
     <!-- Auto equip the diamond chestplate -->
@@ -1890,14 +1891,14 @@ Features:
         <!-- One-time Items -->
         <category id="player" name="`aItem Store" material="tnt">
             <item material="apple" name="`2Knockbapple II" enchantment="knockback:2" amount="1" price="5" currency="emerald block" color="dark green" action="knockback-apple-action" lore="`7One-time purchase:|`71 Knockbapple with Knockback II.|"/>
-            <item material="tnt" damage="1" name="`2TNT" amount="2" price="7" currency="emerald block" color="dark green" action="tnt-action" lore="`7One-time purchase:|`71 Auto TNT.|"/>
-            <item material="golden_apple" name="`2God Apples" damage="1" amount="3" price="24" currency="emerald block" color="dark green" action="god-apple-action" lore="`7One-time purchase:|`73 Enchanted Golden Apples.|"/>
+            <item material="tnt" damage="1" name="`2TNT" amount="2" price="7" currency="emerald block" color="dark green" action="tnt-action" lore="`7One-time purchase:|`72 Auto TNTs.|"/>
+            <item material="golden_apple" name="`2God Apple" damage="1" amount="1" price="22" currency="emerald block" color="dark green" action="god-apple-action" lore="`7One-time purchase:|`71 Enchanted Golden Apple.|"/>
         </category>
     </shop>
     <!-- Shop - Team Upgrades -->
     <shop id="red-team-shop" name="Team Upgrades">
         <category id="team" name="`4Team Upgrades" material="beacon">
-            <item material="shears" name="`4Permanent Shears" lore="`7Your team permanently gains|`7Shears for defense.|" unbreakable="true" price="1" currency="redstone block" filter="shears-0" action="shears-action" color="red"/>
+            <item material="shears" enchantment="efficiency:1" name="`4Permanent Shears" lore="`7Your team permanently gains|`7Shears for defense.|" unbreakable="true" price="1" currency="redstone block" filter="shears-0" action="shears-action" color="red"/>
             <item material="smooth brick" name="`4Block Boost I" amount="32" price="2" currency="redstone block" color="red" filter="block-boost-0" action="block-boost-action-1" lore="`7Your team permanently gains|`7Double number of blocks in kit.||`4Tier 1: Stack Size 32`7, `b2 Blocks|`7Tier 2: Stack Size 64, `b5 Blocks|"/>
             <item material="smooth brick" name="`4Block Boost II" amount="64" price="5" currency="redstone block" color="red" filter="block-boost-1" action="block-boost-action-2" lore="`7Your team permanently gains|`7Double number of blocks in kit, again.||`8Tier 1: Stack Size 32`7, `b2 Blocks|`4Tier 2: Stack Size 64`7, `b5 Blocks|"/>
             <item material="iron axe" name="`4Iron Axe and Shovel" filter="axe-shovel-0" action="axe-shovel-action-1" lore="`7Your team permanently gains|`7Iron Axe &#38; Shovel.||`4Tier 1: Iron Axe &#38; Shovel, `b3 Blocks|`7Tier 2: Diamond Axe &#38; Shovel, `b7 Blocks|`7Tier 3: Diamond Axe &#38; Shovel Efficiency I, `b30 Blocks|">
@@ -1915,7 +1916,7 @@ Features:
             <item material="chainmail chestplate" amount="2" name="`4Reinforced Armor II" lore="`7Your team permanently gains|`7Protection II on leggings/boots.||`8Tier 1: Protection I`7, `b12 Blocks|`4Tier 2: Protection II`7, `b25 Blocks|`7Tier 3: Protection III`7, `b30 Blocks|`7Tier 4: Protection IV`7, `b45 Blocks|" price="25" currency="redstone block" action="protection-set-2" filter="protection-1" color="red"/>
             <item material="gold chestplate" amount="3" name="`4Reinforced Armor III" lore="`7Your team permanently gains|`7Protection III on leggings/boots.||`8Tier 1: Protection I`7, `b12 Blocks|`8Tier 2: Protection II`7, `b25 Blocks|`4Tier 3: Protection III`7, `b30 Blocks|`7Tier 4: Protection IV`7, `b45 Blocks|" price="30" currency="redstone block" action="protection-set-3" filter="protection-2" color="red"/>
             <item material="diamond chestplate" amount="4" name="`4Reinforced Armor IV" lore="`7Your team permanently gains|`7Protection IV on leggings/boots.||`8Tier 1: Protection I`7, `b12 Blocks|`8Tier 2: Protection II`7, `b25 Blocks|`8Tier 3: Protection III`7, `b30 Blocks|`4Tier 4: Protection IV`7, `b45 Blocks|" price="45" currency="redstone block" action="protection-set-4" filter="protection-3" color="red"/>
-            <item material="iron helmet" name="`4Permanent Iron Helmet" lore="`7Your team permanently gains|`7Iron Helmet for kit.|" price="16" currency="redstone block" filter="iron-hat-0" action="iron-hat-action" color="red"/>
+            <item material="iron helmet" name="`4Permanent Iron Helmet" lore="`7Your team permanently gains|`7Iron Helmet for kit.|" price="10" currency="redstone block" filter="iron-hat-0" action="iron-hat-action" color="red"/>
             <item material="iron sword" name="`4Sharpened Swords" lore="`7Your team permanently gains|`7Sharpness I on all swords.||`4Tier 1: Sharpness I`7, `b20 Blocks|`7Tier 2: Sharpness II, `b50 Blocks|" price="20" currency="redstone block" action="sharpness-set-1" filter="sharpness-0" color="red"/>
             <item material="diamond sword" name="`4Sharpened Swords 2" lore="`7Your team permanently gains|`7Sharpness II on all swords.||`8Tier 1: Sharpness I`7, `b20 Blocks|`4Tier 2: Sharpness II, `b50 Blocks|" price="50" currency="redstone block" action="sharpness-set-2" filter="sharpness-1" color="red"/>
             <item material="beacon" name="`4Regen" lore="`7Creates a Regeneration field|`7around your monuments.|" price="30" currency="redstone block" action="regen-set" filter="regen-0" color="red"/>
@@ -1964,14 +1965,14 @@ Features:
         <!-- One-time Items -->
         <category id="player" name="`aItem Store" material="tnt">
             <item material="apple" name="`2Knockbapple II" enchantment="knockback:2" amount="1" price="5" currency="redstone block" color="red" action="knockback-apple-action" lore="`7One-time purchase:|`71 Knockbapple with Knockback II.|"/>
-            <item material="tnt" damage="1" name="`2TNT" amount="2" price="7" currency="redstone block" color="red" action="tnt-action" lore="`7One-time purchase:|`71 Auto TNT.|"/>
-            <item material="golden_apple" name="`2God Apples" damage="1" amount="3" price="24" currency="redstone block" color="red" action="god-apple-action" lore="`7One-time purchase:|`73 Enchanted Golden Apples.|"/>
+            <item material="tnt" damage="1" name="`2TNT" amount="2" price="7" currency="redstone block" color="red" action="tnt-action" lore="`7One-time purchase:|`72 Auto TNTs.|"/>
+            <item material="golden_apple" name="`2God Apple" damage="1" amount="1" price="22" currency="redstone block" color="red" action="god-apple-action" lore="`7One-time purchase:|`71 Enchanted Golden Apple.|"/>
         </category>
     </shop>
     <!-- Shop - Team Upgrades -->
     <shop id="green-team-shop" name="Team Upgrades">
         <category id="team" name="`2Team Upgrades" material="beacon">
-            <item material="shears" name="`2Permanent Shears" lore="`7Your team permanently gains|`7Shears for defense.|" unbreakable="true" price="1" currency="emerald block" filter="shears-0" action="shears-action" color="dark green"/>
+            <item material="shears" enchantment="efficiency:1" name="`2Permanent Shears" lore="`7Your team permanently gains|`7Shears for defense.|" unbreakable="true" price="1" currency="emerald block" filter="shears-0" action="shears-action" color="dark green"/>
             <item material="smooth brick" name="`2Block Boost I" amount="32" price="2" currency="emerald block" color="dark green" filter="block-boost-0" action="block-boost-action-1" lore="`7Your team permanently gains|`7Double number of blocks in kit.||`2Tier 1: Stack Size 32`7, `b2 Blocks|`7Tier 2: Stack Size 64, `b5 Blocks|"/>
             <item material="smooth brick" name="`2Block Boost II" amount="64" price="5" currency="emerald block" color="dark green" filter="block-boost-1" action="block-boost-action-2" lore="`7Your team permanently gains|`7Double number of blocks in kit, again.||`8Tier 1: Stack Size 32`7, `b2 Blocks|`2Tier 2: Stack Size 64`7, `b5 Blocks|"/>
             <item material="iron axe" name="`2Iron Axe and Shovel" filter="axe-shovel-0" action="axe-shovel-action-1" lore="`7Your team permanently gains|`7Iron Axe &#38; Shovel.||`2Tier 1: Iron Axe &#38; Shovel, `b3 Blocks|`7Tier 2: Diamond Axe &#38; Shovel, `b7 Blocks|`7Tier 3: Diamond Axe &#38; Shovel Efficiency I, `b30 Blocks|">
@@ -1989,7 +1990,7 @@ Features:
             <item material="chainmail chestplate" amount="2" name="`2Reinforced Armor II" lore="`7Your team permanently gains|`7Protection II on leggings/boots.||`8Tier 1: Protection I`7, `b12 Blocks|`2Tier 2: Protection II`7, `b25 Blocks|`7Tier 3: Protection III`7, `b30 Blocks|`7Tier 4: Protection IV`7, `b45 Blocks|" price="25" currency="emerald block" action="protection-set-2" filter="protection-1" color="dark green"/>
             <item material="gold chestplate" amount="3" name="`2Reinforced Armor III" lore="`7Your team permanently gains|`7Protection III on leggings/boots.||`8Tier 1: Protection I`7, `b12 Blocks|`8Tier 2: Protection II`7, `b25 Blocks|`2Tier 3: Protection III`7, `b30 Blocks|`7Tier 4: Protection IV`7, `b45 Blocks|" price="30" currency="emerald block" action="protection-set-3" filter="protection-2" color="dark green"/>
             <item material="diamond chestplate" amount="4" name="`2Reinforced Armor IV" lore="`7Your team permanently gains|`7Protection IV on leggings/boots.||`8Tier 1: Protection I`7, `b12 Blocks|`8Tier 2: Protection II`7, `b25 Blocks|`8Tier 3: Protection III`7, `b30 Blocks|`2Tier 4: Protection IV`7, `b45 Blocks|" price="45" currency="emerald block" action="protection-set-4" filter="protection-3" color="dark green"/>
-            <item material="iron helmet" name="`2Permanent Iron Helmet" lore="`7Your team permanently gains|`7Iron Helmet for kit.|" price="16" currency="emerald block" filter="iron-hat-0" action="iron-hat-action" color="dark green"/>
+            <item material="iron helmet" name="`2Permanent Iron Helmet" lore="`7Your team permanently gains|`7Iron Helmet for kit.|" price="10" currency="emerald block" filter="iron-hat-0" action="iron-hat-action" color="dark green"/>
             <item material="iron sword" name="`2Sharpened Swords" lore="`7Your team permanently gains|`7Sharpness I on all swords.||`2Tier 1: Sharpness I`7, `b20 Blocks|`7Tier 2: Sharpness II, `b50 Blocks|" price="20" currency="emerald block" action="sharpness-set-1" filter="sharpness-0" color="dark green"/>
             <item material="diamond sword" name="`2Sharpened Swords 2" lore="`7Your team permanently gains|`7Sharpness II on all swords.||`8Tier 1: Sharpness I`7, `b20 Blocks|`2Tier 2: Sharpness II, `b50 Blocks|" price="50" currency="emerald block" action="sharpness-set-2" filter="sharpness-1" color="dark green"/>
             <item material="beacon" name="`2Regen" lore="`7Creates a Regeneration field|`7around your monuments.|" price="30" currency="emerald block" action="regen-set" filter="regen-0" color="dark green"/>
